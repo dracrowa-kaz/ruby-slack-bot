@@ -27,7 +27,7 @@ client.on :message do |data|
                 p "add column #{target}"
         end
 
-        if data['text'] == "@maid-bot task"
+        if data['text'] == "tell my task"
                 query = ("select * from remaining_tasks where user_id = '#{data['user']}' order by id desc limit 1")
                 results = context.query(query)
                 puts query
