@@ -34,14 +34,14 @@ client.on :message do |data|
                 results.each do |row|
                         puts row['user_id']
                         puts row['task_text']
-                        params = createParam(row['task_text'])
+                        params = createParam(data,row['task_text'])
                 end
                 Slack.chat_postMessage params
         end
   end
 end
 
-def createParam(message)
+def createParam(data,message)
     params = {
         channel: data['channel'],
         username: BOTNAME ,
