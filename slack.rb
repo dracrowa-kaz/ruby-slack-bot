@@ -8,7 +8,7 @@ context = Mysql2::Client.new(:host => "localhost", :username => "root", :passwor
 TOKEN = setting["token"]
 
 BOTNAME = "task-manager"
-IMAGEURL = 'http://i15.photobucket.com/albums/a383/SeanyBoyo/Celebrities/Audrey%20Hepburn/1893337_029.png'
+
 Slack.configure {|config| config.token = TOKEN }
 
 client = Slack.realtime
@@ -46,7 +46,7 @@ def createParam(message)
         channel: data['channel'],
         username: BOTNAME ,
         text:  message
-        icon_url: IMAGEURL
+        #icon_url: IMAGEURL
     }
     return params
 end
