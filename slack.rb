@@ -9,6 +9,7 @@ TOKEN = setting["token"]
 
 BOTNAME = "task-manager"
 
+
 Slack.configure {|config| config.token = TOKEN }
 
 client = Slack.realtime
@@ -27,7 +28,7 @@ client.on :message do |data|
                 p "add column #{target}"
         end
 
-        if data['text'] == "tell my task"
+        if data['text'].include?('tell my task')
                 query = ("select * from remaining_tasks where user_id = '#{data['user']}' order by id desc limit 1")
                 results = context.query(query)
                 puts query
