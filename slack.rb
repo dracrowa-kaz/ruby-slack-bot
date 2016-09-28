@@ -32,11 +32,11 @@ client.on :message do |data|
                 results = context.query(query)
                 puts query
                 results.each do |row|
-                        puts row['user_id']
-                        puts row['task_text']
-                        params = createParam(data,row['task_text'])
+                    puts row['user_id']
+                    puts row['task_text']
+                    params = createParam(data,row['task_text'])
+                    Slack.chat_postMessage params
                 end
-                Slack.chat_postMessage params
         end
   end
 end
