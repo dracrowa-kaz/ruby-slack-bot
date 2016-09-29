@@ -35,7 +35,7 @@ client.on :message do |data|
                 results.each do |row|
                     puts row['user_id']
                     puts row['task_text']
-                    message = "<@#{data['user']}>\n \n<残作業>#{row['task_text']} "
+                    message = "<@#{data['user']}>\n<残作業>#{row['task_text']} "
                     params = createParam(data,message)
                     Slack.chat_postMessage params
                 end
